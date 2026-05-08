@@ -1,4 +1,4 @@
-# Autonomous Forensic Engine 🐺🛡️
+# Autonomous Forensic Engine
 
 FENRIR is a specialized cybersecurity AI assistant built on top of a fine-tuned **Deepseek-cybersec-33b-instruct** model. It is designed to automate malware intent analysis and identify malicious patterns in obfuscated code with high precision.
 
