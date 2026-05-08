@@ -32,7 +32,7 @@ Training logs show a consistent loss reduction, ensuring the model effectively l
 ```bash
 pip install -r requirements.txt
 ```
-3. **streamlit run demo.py:**
+3. **Run :**
 ```bash
 streamlit run demo.py
 ```
