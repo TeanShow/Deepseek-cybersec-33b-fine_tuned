@@ -1,0 +1,59 @@
+# Модель и база
+base_model: deepseek-ai/deepseek-coder-33b-instruct
+model_type: AutoModelForCausalLM
+tokenizer_type: AutoTokenizer
+
+# Настройки LoRA
+adapter: lora
+lora_r: 16
+lora_alpha: 32
+lora_dropout: 0.05
+lora_target_linear: true
+
+# ГЛАВНЫЙ ФИКС: Загружаем веса первой фазы напрямую (это безопасно)
+lora_model_dir: ./model-out/checkpoint-50 
+
+# Настройка датасета
+datasets:
+  - path: /root/llmproject/data/READY_STABLE.jsonl
+    type: alpaca
+
+# КУДА СОХРАНЯЕМ ВТОРУЮ ФАЗУ
+output_dir: ./model-out-phase2
+
+# ВАЖНО: Оставляем пустым, чтобы не нарваться на ошибку torch.load
+resume_from_checkpoint: 
+
+# ПАРАМЕТРЫ СТАБИЛЬНОСТИ
+sequence_len: 2048
+sample_packing: false
+pad_to_sequence_len: true
+
+# ОПТИМИЗАЦИЯ
+attn_implementation: eager
+bf16: true
+fp16: false
+tf32: false
+
+# ГИПЕРПАРАМЕТРЫ
+gradient_accumulation_steps: 16
+micro_batch_size: 1
+num_epochs: 1
+optimizer: adamw_torch
+optimizer_params:
+  eps: 1e-4
+learning_rate: 0.0000002
+lr_scheduler: constant
+
+# ЛОГИ И СЕЙВЫ
+logging_steps: 1
+save_strategy: steps
+save_steps: 25          
+max_steps: 50           # Ставим 50 (он начнет с 0 и доучит еще 50 шагов)
+wandb_project: "trainllm"
+wandb_name: "deepseek-33b-phase2-RESUMED"
+
+# ДОП. ПАРАМЕТРЫ
+gradient_checkpointing: true
+val_set_size: 0
+max_grad_norm: 0.1

@@ -1,0 +1,17 @@
+torch==2.4.1+rocm6.0
+transformers==5.5.0
+peft==0.19.1
+bitsandbytes==0.49.1
+accelerate==1.13.0
+safetensors==0.7.0
+tokenizers==0.22.2
+optimum==1.16.2
+axolotl==0.16.1
+huggingface_hub==1.7.0
+amdsmi==7.0.2
+streamlit==1.57.0
+pandas==2.3.3
+numpy==2.3.5
+PyYAML==6.0.3
+requests==2.33.1
+tqdm==4.67.3
