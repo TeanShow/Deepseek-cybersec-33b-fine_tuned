@@ -1,6 +1,6 @@
 # Autonomous Forensic Engine
 
-FENRIR is a specialized cybersecurity AI assistant built on top of a fine-tuned **Deepseek-cybersec-33b-instruct** model. It is designed to automate malware intent analysis and identify malicious patterns in obfuscated code with high precision.
+Deepseek-cybersec is a specialized cybersecurity AI assistant built on top of a fine-tuned **Deepseek-cybersec-33b-instruct** model. It is designed to automate malware intent analysis and identify malicious patterns in obfuscated code with high precision.
 
 ## 🚀 Key Features
 - **Deep Intent Analysis:** Unlike standard LLMs, Deepseek-cybersec is fine-tuned to recognize the underlying intent of code, not just its syntax.
